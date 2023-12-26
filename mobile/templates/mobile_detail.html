@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="d-flex justify-content-center mt-5">
+        <div class="card text-center" style="width: 18rem;">
+            {%if data.picture%}
+                <img src="{{data.picture.url}}" alt="" class="rounded-2 rounded-bottom-0">
+            {%endif%}
+            <div class="card-header">
+                <strong>{{data.name}}</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">Price: <i class="fa-solid fa-indian-rupee-sign fa-sm" style="color: #000000;"></i> <strong>{{data.price}}</strong></li>
+            <li class="list-group-item">Brand: <strong>{{data.brand}}</strong></li>
+            <li class="list-group-item">Specs: <strong>{{data.specs}}</strong></li>
+            <li class="list-group-item">Display: <strong>{{data.display}}</strong></li>
+            <button class="btn btn-danger rounded-top-0">Buy Now <i class="fa-solid fa-indian-rupee-sign fa-sm" style="color: #ffffff;"></i> {{data.price}}</button>
+            </ul>
+        </div>
+    </div>
+</div>
+{%endblock%}

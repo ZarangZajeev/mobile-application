@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="container">
+    <h2 class="text-center mt-4 fw-bolder">Available Mobiles</h2>
+    <table class="table table-bordered table-striped table-dark shadow">
+        <tr class="text-center">
+            <th>Name</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th>Specs</th>
+            <th>Display</th>
+            <th colspan="3">Actions</th>
+            
+        </tr>
+        {%for mob in data%}
+        <tr class="text-center">
+            <td>{{mob.name}}</td>
+            <td>{{mob.price}}</td>
+            <td>{{mob.brand}}</td>
+            <td>{{mob.specs}}</td>
+            <td>{{mob.display}}</td>
+            <td>
+                <button class="btn btn-secondary"><a href="{%url 'mobile-detail' mob.id%}"><i class="fa-solid fa-eye" style="color: #ffffff;"></i></a></button>
+            </td>
+            <td>
+                <button class="btn btn-danger"><a href="{%url 'mobile-delete' mob.id%}"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></a></button>
+            </td>
+            <td>
+                <button class="btn btn-info"><a href="{%url 'mobile-change' mob.id%}"><i class="fa-solid fa-edit" style="color: #ffffff;"></i></a></button>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{%endblock%}

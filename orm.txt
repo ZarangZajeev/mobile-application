@@ -1,0 +1,57 @@
+class Mobiles(models.Model):
+    name=models.CharField(max_length=100,unique=True)
+    price=models.PositiveIntegerField()
+    brand=models.CharField(max_length=100)
+    specs=models.CharField(max_length=100)
+    display=models.CharField(max_length=100)
+
+orm querrys:
+
+modelname.objects.create(fieldname=value,......)
+
+eg. 
+from mobile.models import Mobiles
+>>
+    from application_name.models import ModelName
+
+* create-->>
+    ModelName.objects.create(field_name="values",......,..........,....,)
+
+* Fetching all-->>
+    variableName=Model_name.objects.all()
+
+* Fetching specific object-->>
+    qs=ModelName.objects.get(id=2)
+
+*  Filtering Objects-->>
+    variable_name=ModelName.objects.filter(Field_name="value")
+    
+    >>  Greater than check >
+    variable_name=ModelName.objects.filter(field_name__gt=value)
+
+    >>  Less than check <
+    variable_name=ModelName.objects.filter(field_name__lt=value)
+
+    >>  Greater than or equal check >=
+    variable_name=ModelName.objects.filter(field_name__gte=value)
+
+    >>  Less than or equal check <=
+    variable_name=ModelName.objects.filter(field_name__lte=value)
+
+    >> Exclude !=
+    variable_name=ModelName.objects.exclude(field_name="Values")
+
+* Delete Objects-->>
+    ModelName.objects.filter(id=3).delete()
+
+* Update Objects-->>
+    ModelName.objects.filter(id=2).update(field_name="values")
+
+    >>sort (ascending order)-------
+       variable_name=ModelName.objects.all().order_by("field_name")
+
+       (Descending order)---------
+       variable_name=ModelName.objects.all().order_by("-field_name")
+
+    >>Specific Column--------
+      variable_name=ModelName.objects.all().values_list("field_name",flat=True).distinct()
